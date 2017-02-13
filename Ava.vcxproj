@@ -19,12 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sys\win_local.h" />
+    <ClCompile Include="sys\win\win_input.cpp" />
+    <ClCompile Include="sys\win\win_main.cpp" />
+    <ClCompile Include="sys\win\win_snd.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sys\win_input.cpp" />
-    <ClCompile Include="sys\win_main.cpp" />
-    <ClCompile Include="sys\win_snd.cpp" />
+    <ClInclude Include="sys\win\win_local.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
