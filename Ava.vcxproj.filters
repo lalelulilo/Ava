@@ -15,7 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="platform\win32_ava.cpp">
+    <ClInclude Include="sys\win_local.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sys\win_input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sys\win_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sys\win_snd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
