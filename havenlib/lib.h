@@ -20,8 +20,8 @@
 #define PRINT_BUF_SIZE     1024   // max length of our debug strings
 
 // Verbosity masks will allow you to disable what is and isn't printed
-#define VERBOSITY_LIB    ( 1 << 0 )    // havenLib
-#define VERBOSITY_SYS    ( 1 << 1 )    // System related
+#define VERBOSITY_LIB    ( 0x01 )    // havenLib
+#define VERBOSITY_SYS    ( 0x02 )    // System related
 
 /* Convenience macros for debugging and errors. These will add the file name, function name,
    and line number to the debug message. These will be optimized out if DEBUG == 0
@@ -31,7 +31,7 @@
 #define DebugPrintf( verbosity, fmt, ... ) \
     do { if (DEBUG) havenLib::VPrintf(verbosity, "%s(%d): " fmt, \
                                       __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
-#define DebugPrintfIf( verbosity, cond, fmt, ... ) \
+#define DebugPrintfIf( cond, verbosity, fmt, ... )                 \
     do { if (DEBUG && cond) havenLib::VPrintf(verbosity, "%s(%d): " fmt,  \
                                       __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
@@ -45,7 +45,7 @@
 #define DebugWarning( verbosity, fmt, ... ) \
     do { if (DEBUG) havenLib::VWarning(verbosity, "%s(%d): " fmt, \
                                                   __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
-#define DebugWarningIf( verbosity, cond, fmt, ... ) \
+#define DebugWarningIf( cond, verbosity, fmt, ... )                \
     do { if (DEBUG && cond) havenLib::VWarning(verbosity, "%s(%d): " fmt, \
                                        __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
