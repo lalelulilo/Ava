@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "win_local.h"
+#include "../../havenlib/precompiled.h"
 
 /* Global variable */
 Win32Vars_t win32 = { 0 };
@@ -80,6 +81,14 @@ int CALLBACK WinMain( HINSTANCE Instance, HINSTANCE PrevInstance, LPSTR CommandL
         // TODO(szucs): Log error code
     }
 
+    /* TODO(szucs): Likely not the ideal place for this, but keep
+       it here for now to prove it works
+    */
+    havenLib::Init();
+
+    DebugPrintf( VERBOSITY_SYS, "If I was a game loop I'd probably go here\n" );
+
+    havenLib::Deinit();
     return 0;
 }
 

@@ -19,11 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="havenlib\lib.cpp" />
     <ClCompile Include="sys\win\win_input.cpp" />
     <ClCompile Include="sys\win\win_main.cpp" />
     <ClCompile Include="sys\win\win_snd.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="havenlib\lib.h" />
+    <ClInclude Include="havenlib\precompiled.h" />
     <ClInclude Include="sys\win\win_local.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -109,6 +112,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

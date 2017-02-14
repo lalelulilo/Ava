@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\havenLib">
+      <UniqueIdentifier>{20bee98a-1dfb-4d16-9f73-c8fda8f47466}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sys\win\win_input.cpp">
@@ -24,10 +27,19 @@
     <ClCompile Include="sys\win\win_snd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="havenlib\lib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sys\win\win_local.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="havenlib\lib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="havenlib\precompiled.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
