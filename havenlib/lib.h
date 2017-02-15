@@ -51,8 +51,13 @@
 
 class havenLib {
 public:
+    /* The verbosityMask decides what will actually be printed to console, and what won't.
+       This is a bitmask, so for example you can turn off havenLib debugging by clearing
+       VERBOSITY_LIB
+    */
     static int verbosityMask;
 
+    /* Start-up and teardown for havenLib */
     static int Init();
     static int Deinit();
 
