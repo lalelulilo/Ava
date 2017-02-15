@@ -28,6 +28,7 @@
 
    Do while loop allows you to treat it like a normal function
 */
+// Inform us that something happened, like when havenLib is initialized
 #define DebugPrintf( verbosity, fmt, ... ) \
     do { if (DEBUG) havenLib::VPrintf(verbosity, "%s(%d): " fmt, \
                                       __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
@@ -35,6 +36,7 @@
     do { if (DEBUG && cond) havenLib::VPrintf(verbosity, "%s(%d): " fmt,  \
                                       __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
+// Error occured, like model failed to load, but we can continue the game
 #define DebugError( fmt, ... ) \
     do { if (DEBUG) havenLib::Error("%s(%d): " fmt, \
                                               __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
@@ -42,6 +44,15 @@
     do { if (DEBUG && cond) havenLib::Error("%s(%d): " fmt, \
                                              __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
+// Fatal error occured which means we can't continue the game i.e. failed to init havenLib
+#define DebugFatalError( fmt, ... )                                          \
+    do { if (DEBUG) havenLib::FatalError("%s(%d): " fmt,                     \
+                                    __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
+#define DebugFatalErrorIf( cond, fmt, ... )                                  \
+    do { if (DEBUG && cond) havenLib::FatalError("%s(%d): " fmt,             \
+                                            __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
+
+// Somewhere in-between a Printf and an Error, you'll have to use your best judgement :)
 #define DebugWarning( verbosity, fmt, ... ) \
     do { if (DEBUG) havenLib::VWarning(verbosity, "%s(%d): " fmt, \
                                                   __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
