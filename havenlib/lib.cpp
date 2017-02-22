@@ -1,4 +1,4 @@
-/* havenLib */
+/* HavenLib */
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -10,9 +10,9 @@
 
 #include "../havenlib/lib.h"
 
-int havenLib::verbosityMask = VERBOSITY_SYS | VERBOSITY_LIB;
+int HavenLib::verbosityMask = VERBOSITY_SYS | VERBOSITY_LIB;
 
-void havenLib::VPrintf( const int verbosity, const char *fmt, ... ) {
+void HavenLib::VPrintf( const int verbosity, const char *fmt, ... ) {
     if ( !( verbosity & verbosityMask ) ) return; 
 
     char buf[PRINT_BUF_SIZE];
@@ -25,7 +25,7 @@ void havenLib::VPrintf( const int verbosity, const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void havenLib::VWarning( const int verbosity, const char *fmt, ... ) {
+void HavenLib::VWarning( const int verbosity, const char *fmt, ... ) {
     if ( !( verbosity & verbosityMask ) ) return; 
 
     char buf[PRINT_BUF_SIZE];
@@ -38,7 +38,7 @@ void havenLib::VWarning( const int verbosity, const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void havenLib::Printf( const char *fmt, ... ) {
+void HavenLib::Printf( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -53,7 +53,7 @@ void havenLib::Printf( const char *fmt, ... ) {
    freeze the game loop and probably throw up a dialog box until
    the user acknowledges the error
 */
-void havenLib::Error( const char *fmt, ... ) {
+void HavenLib::Error( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -67,7 +67,7 @@ void havenLib::Error( const char *fmt, ... ) {
 /* TODO(szucs): Once we have our game loop, we'll want this to
    abort the game loop and probably throw up a dialog box
 */
-void havenLib::FatalError( const char *fmt, ... ) {
+void HavenLib::FatalError( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -78,7 +78,7 @@ void havenLib::FatalError( const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void havenLib::Warning( const char *fmt, ... ) {
+void HavenLib::Warning( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -89,13 +89,13 @@ void havenLib::Warning( const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-int havenLib::Init() {
-    DebugPrintf( VERBOSITY_LIB, "Initialized havenLib\n");
+int HavenLib::Init() {
+    DebugPrintf( VERBOSITY_LIB, "Initialized HavenLib\n");
 
     return 0;
 }
 
-int havenLib::Deinit() {
+int HavenLib::Deinit() {
     // Nothing to Deinit right now
     return 0;
 }
