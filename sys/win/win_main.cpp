@@ -84,11 +84,11 @@ int CALLBACK WinMain( HINSTANCE Instance, HINSTANCE PrevInstance, LPSTR CommandL
     /* TODO(szucs): Likely not the ideal place for this, but keep
        it here for now to prove it works
     */
-    havenLib::Init();
+    HavenLib::Init();
 
     DebugPrintf( VERBOSITY_SYS, "If I was a game loop I'd probably go here\n" );
 
-    havenLib::Deinit();
+    HavenLib::Deinit();
     return 0;
 }
 
