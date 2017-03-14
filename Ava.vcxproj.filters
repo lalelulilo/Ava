@@ -48,4 +48,7 @@
     <Library Include="bearlib\x64\BearLibTerminal.lib" />
     <Library Include="bearlib\x86\BearLibTerminal.lib" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="bearlib\NotoMono-Regular.ttf" />
+  </ItemGroup>
 </Project>
