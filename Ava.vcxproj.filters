@@ -24,6 +24,9 @@
     <ClCompile Include="sys\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Map\map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="havenlib\lib.h">
@@ -39,7 +42,6 @@
   <ItemGroup>
     <None Include="bearlib\x64\BearLibTerminal.dll" />
     <None Include="bearlib\x86\BearLibTerminal.dll" />
-    <None Include="bearlib\BearLib.ref" />
     <None Include="Ava.VC.db" />
     <None Include="Ava.vcxproj" />
     <None Include="README.md" />
@@ -47,5 +49,8 @@
   <ItemGroup>
     <Library Include="bearlib\x64\BearLibTerminal.lib" />
     <Library Include="bearlib\x86\BearLibTerminal.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="bearlib\BearLib.ref" />
   </ItemGroup>
 </Project>
