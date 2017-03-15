@@ -1,16 +1,11 @@
-/* HavenLib */
+/* Debug Functions */
 
 #include <stdarg.h>
 #include <stdio.h>
 
-/* TODO(szucs): Remove this and OutputDebugStringA when we
-   have a console to print debug messages to
-*/
-#include <windows.h>
-
 #include "../havenlib/lib.h"
 
-int HavenLib::verbosityMask = VERBOSITY_SYS | VERBOSITY_LIB;
+static int verbosityMask = VERBOSITY_SYS;
 
 void HavenLib::VPrintf( const int verbosity, const char *fmt, ... ) {
     if ( !( verbosity & verbosityMask ) ) return; 
