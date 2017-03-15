@@ -3,11 +3,12 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "../havenlib/lib.h"
+#include "console.h"
+#include "debug.h"
 
 static int verbosityMask = VERBOSITY_SYS;
 
-void HavenLib::VPrintf( const int verbosity, const char *fmt, ... ) {
+void vPrintf( const int verbosity, const char *fmt, ... ) {
     if ( !( verbosity & verbosityMask ) ) return; 
 
     char buf[PRINT_BUF_SIZE];
@@ -20,7 +21,7 @@ void HavenLib::VPrintf( const int verbosity, const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void HavenLib::VWarning( const int verbosity, const char *fmt, ... ) {
+void vWarning( const int verbosity, const char *fmt, ... ) {
     if ( !( verbosity & verbosityMask ) ) return; 
 
     char buf[PRINT_BUF_SIZE];
@@ -33,7 +34,7 @@ void HavenLib::VWarning( const int verbosity, const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void HavenLib::Printf( const char *fmt, ... ) {
+void printf( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -48,7 +49,7 @@ void HavenLib::Printf( const char *fmt, ... ) {
    freeze the game loop and probably throw up a dialog box until
    the user acknowledges the error
 */
-void HavenLib::Error( const char *fmt, ... ) {
+void error( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -62,7 +63,7 @@ void HavenLib::Error( const char *fmt, ... ) {
 /* TODO(szucs): Once we have our game loop, we'll want this to
    abort the game loop and probably throw up a dialog box
 */
-void HavenLib::FatalError( const char *fmt, ... ) {
+void fatalError( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -73,7 +74,7 @@ void HavenLib::FatalError( const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void HavenLib::Warning( const char *fmt, ... ) {
+void warning( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -82,15 +83,4 @@ void HavenLib::Warning( const char *fmt, ... ) {
     va_end( args );
 
     OutputDebugStringA(buf);
-}
-
-int HavenLib::Init() {
-    DebugPrintf( VERBOSITY_LIB, "Initialized HavenLib\n");
-
-    return 0;
-}
-
-int HavenLib::Deinit() {
-    // Nothing to Deinit right now
-    return 0;
 }

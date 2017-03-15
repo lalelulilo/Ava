@@ -4,8 +4,6 @@
 #ifndef __DEBUG_H__
 #define __DEBUG_H__
 
-#include "precompiled.h"
-
 /* Specifies that a function will never return, and that
    any conditions which lead to them being called are guaranteed
    to be false
@@ -24,7 +22,7 @@
 
    Do while loop allows you to treat it like a normal function
 */
-// Inform us that something happened, like when HavenLib is initialized
+// Inform us that something happened, like when the game is initialized
 #define debugPrintf( verbosity, fmt, ... ) \
     do { if (DEBUG) printf(verbosity, "%s(%d): " fmt, \
                            __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
@@ -63,26 +61,5 @@ void printf( const char *fmt, ... );
 void warning( const char *fmt, ... );
 NO_RETURN void error( const char *fmt, ... );
 NO_RETURN void fatalError( const char *fmt, ... );
-
-class HavenLib {
-public:
-    /* The verbosityMask decides what will actually be printed to console, and what won't.
-       This is a bitmask, so for example you can turn off HavenLib debugging by clearing
-       VERBOSITY_LIB
-    */
-    static int verbosityMask;
-
-    /* Start-up and teardown for HavenLib */
-    static int Init();
-    static int Deinit();
-
-    /* Debug functions for printing */
-    static void VPrintf( const int verbosity, const char *fmt, ... );
-    static void VWarning( const int verbosity, const char *fmt, ... );
-    static void Printf( const char *fmt, ... );
-    static void Warning( const char *fmt, ... );
-    NO_RETURN static void Error( const char *fmt, ... );
-    NO_RETURN static void FatalError( const char *fmt, ... );
-};
 
 #endif /* !__DEBUG_H__ */
