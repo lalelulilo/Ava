@@ -13,25 +13,24 @@
 static int runGame = 1;
 
 int main() {
-    Console debugConsole( 255 );
+    Console debugConsole( LAYER_DEBUG_CONSOLE );
 
     /* Create our main window */
     if ( !terminal_open() ) {
-        LOG( VERBOSITY_SYS, "Failed to open terminal window.. exiting\n" );
+        AVA_ERROR( "Failed to open terminal window.. exiting\n" );
         return -1;
     }
 
     /* Terminal settings */
     if ( !terminal_set( "window: title='AVA', size=200x50" ) ) {
-        LOG( VERBOSITY_SYS, "Failed to set window title and size... exiting\n" );
+        AVA_ERROR( "Failed to set window title and size... exiting\n" );
         return -1;
     }
     if ( !terminal_set( "font: ./NotoMono-Regular.ttf, size=11" ) ) {
-        LOG( VERBOSITY_SYS, "Failed to set terminal font.. exiting\n" );
+        AVA_ERROR( "Failed to set terminal font.. exiting\n" );
         return -1;
     }
 
-    LOG( VERBOSITY_SYS, "Waiting for terminal to be closed..\n" );
     while ( runGame ) {
         terminal_print( 0, 0, "Oh yeah!" );
         terminal_print( 0, 1, "You gotta get schwifty" );

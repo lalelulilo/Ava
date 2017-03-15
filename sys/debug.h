@@ -12,7 +12,8 @@
 */
 #define NO_RETURN  __declspec(noreturn)
 
-#define PRINT_BUF_SIZE     1024      // max length of our debug strings
+#define LAYER_DEBUG_CONSOLE 255
+#define PRINT_BUF_SIZE      1024      // max length of our debug strings
 
 // Verbosity masks will allow you to disable what is and isn't printed
 #define VERBOSITY_SYS    ( 0x01 )    // System related

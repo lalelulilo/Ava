@@ -4,7 +4,7 @@
 #define __SYS_CONSOLE__
 
 class Console {
-public:
+public:G
     Console( int layer );
 
     /* Show the console and start it's loop */
