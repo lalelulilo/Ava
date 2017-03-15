@@ -3,9 +3,15 @@
 #ifndef __SYS_CONSOLE__
 #define __SYS_CONSOLE__
 
-/* Place the console on the top layer */
-#define LAYER_CONSOLE         255
+class Console {
+public:
+    Console( int layer );
 
-int console_start();
+    /* Show the console and start it's loop */
+    int show();
+private:
+    int layer;
+    int runConsole;
+};
 
 #endif /* __SYS_CONSOLE__ */

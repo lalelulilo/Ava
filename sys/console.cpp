@@ -3,14 +3,18 @@
 #include "BearLibTerminal.h"
 #include "console.h"
 
-static int runConsole = 0;
+Console::Console( int layer )
+{
+    this->runConsole = 0;
+    this->layer = layer;
+}
 
-/* Start the console loop */
-int console_start() {
+/* Show the console and start the loop */
+int Console::show() {
     int prevLayer = terminal_state( TK_LAYER );
 
     terminal_clear();
-    terminal_layer( LAYER_CONSOLE );
+    terminal_layer( layer );
 
     terminal_print( 0, 0, "Oh no!" );
     terminal_refresh();

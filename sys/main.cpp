@@ -7,29 +7,31 @@
 
 #include "BearLibTerminal.h"
 #include "console.h"
-#include "../havenlib/precompiled.h"
+#include "debug.h"
 
 /* Conditional for main game loop */
 static int runGame = 1;
 
 int main() {
+    Console debugConsole( 255 );
+
     /* Create our main window */
     if ( !terminal_open() ) {
-        DebugPrintf( VERBOSITY_SYS, "Failed to open terminal window.. exiting\n" );
+        LOG( VERBOSITY_SYS, "Failed to open terminal window.. exiting\n" );
         return -1;
     }
 
     /* Terminal settings */
     if ( !terminal_set( "window: title='AVA', size=200x50" ) ) {
-        DebugPrintf( VERBOSITY_SYS, "Failed to set window title and size... exiting\n" );
+        LOG( VERBOSITY_SYS, "Failed to set window title and size... exiting\n" );
         return -1;
     }
     if ( !terminal_set( "font: ./NotoMono-Regular.ttf, size=11" ) ) {
-        DebugPrintf( VERBOSITY_SYS, "Failed to set terminal font.. exiting\n" );
+        LOG( VERBOSITY_SYS, "Failed to set terminal font.. exiting\n" );
         return -1;
     }
 
-    DebugPrintf( VERBOSITY_SYS, "Waiting for terminal to be closed..\n" );
+    LOG( VERBOSITY_SYS, "Waiting for terminal to be closed..\n" );
     while ( runGame ) {
         terminal_print( 0, 0, "Oh yeah!" );
         terminal_print( 0, 1, "You gotta get schwifty" );
@@ -40,7 +42,7 @@ int main() {
         /* TODO(tszucs): Deal with key releases being read */
         switch ( terminal_read() ) {
         case TK_GRAVE:
-            console_start();
+            debugConsole.show();
             break;
         case TK_CLOSE:
             runGame = 0;

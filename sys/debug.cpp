@@ -3,13 +3,15 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#include <windows.h>
+
 #include "console.h"
 #include "debug.h"
 
 static int verbosityMask = VERBOSITY_SYS;
 
-void vPrintf( const int verbosity, const char *fmt, ... ) {
-    if ( !( verbosity & verbosityMask ) ) return; 
+void vLog( const int verbosity, const char *fmt, ... ) {
+    if ( !( verbosity & verbosityMask ) ) return;
 
     char buf[PRINT_BUF_SIZE];
     va_list args;
@@ -22,7 +24,7 @@ void vPrintf( const int verbosity, const char *fmt, ... ) {
 }
 
 void vWarning( const int verbosity, const char *fmt, ... ) {
-    if ( !( verbosity & verbosityMask ) ) return; 
+    if ( !( verbosity & verbosityMask ) ) return;
 
     char buf[PRINT_BUF_SIZE];
     va_list args;
@@ -34,7 +36,7 @@ void vWarning( const int verbosity, const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void printf( const char *fmt, ... ) {
+void log( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
