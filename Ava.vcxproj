@@ -19,22 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="havenlib\lib.cpp" />
+    <ClCompile Include="sys\console.cpp" />
+    <ClCompile Include="sys\debug.cpp" />
     <ClCompile Include="sys\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bearlib\BearLibTerminal.h" />
-    <ClInclude Include="havenlib\lib.h" />
-    <ClInclude Include="havenlib\precompiled.h" />
+    <ClInclude Include="sys\console.h" />
+    <ClInclude Include="sys\debug.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="bearlib\BearLib.ref">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">COPY "$(ProjectDir)bearlib\x86\BearLibTerminal.dll" "$(TargetDir)" &gt; NUL</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">COPY "$(ProjectDir)bearlib\x86\BearLibTerminal.dll" "$(TargetDir)" &gt; NUL
+COPY "$(ProjectDir)bearlib\NotoMono-Regular.ttf" "$(TargetDir)" &gt; NUL</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Copying BearLibTerminal to output directory..</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)BearLibTerminal.dll</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)bearlib\x86\BearLibTerminal.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">COPY "$(ProjectDir)bearlib\x64\BearLibTerminal.dll" "$(TargetDir)" &gt; NUL</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">COPY "$(ProjectDir)bearlib\x64\BearLibTerminal.dll" "$(TargetDir)" &gt; NUL
+COPY "$(ProjectDir)bearlib\NotoMono-Regular.ttf" "$(TargetDir)" &gt; NUL</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Copying BearLibTerminal to output directory..</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(TargetDir)BearLibTerminal.dll</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)bearlib\x86\BearLibTerminal.dll</AdditionalInputs>
@@ -48,6 +51,12 @@
   <ItemGroup>
     <Library Include="bearlib\x64\BearLibTerminal.lib" />
     <Library Include="bearlib\x86\BearLibTerminal.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="bearlib\NotoMono-Regular.ttf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </Font>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

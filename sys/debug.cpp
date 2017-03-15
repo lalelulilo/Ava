@@ -1,32 +1,17 @@
-/* HavenLib */
+/* Debug Functions */
 
 #include <stdarg.h>
 #include <stdio.h>
 
-/* TODO(szucs): Remove this and OutputDebugStringA when we
-   have a console to print debug messages to
-*/
 #include <windows.h>
 
-#include "../havenlib/lib.h"
+#include "console.h"
+#include "debug.h"
 
-int HavenLib::verbosityMask = VERBOSITY_SYS | VERBOSITY_LIB;
+static int verbosityMask = VERBOSITY_SYS;
 
-void HavenLib::VPrintf( const int verbosity, const char *fmt, ... ) {
-    if ( !( verbosity & verbosityMask ) ) return; 
-
-    char buf[PRINT_BUF_SIZE];
-    va_list args;
-
-    va_start( args, fmt );
-    vsnprintf( buf, PRINT_BUF_SIZE, fmt, args );
-    va_end( args );
-
-    OutputDebugStringA(buf);
-}
-
-void HavenLib::VWarning( const int verbosity, const char *fmt, ... ) {
-    if ( !( verbosity & verbosityMask ) ) return; 
+void vLog( const int verbosity, const char *fmt, ... ) {
+    if ( !( verbosity & verbosityMask ) ) return;
 
     char buf[PRINT_BUF_SIZE];
     va_list args;
@@ -38,7 +23,20 @@ void HavenLib::VWarning( const int verbosity, const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void HavenLib::Printf( const char *fmt, ... ) {
+void vWarning( const int verbosity, const char *fmt, ... ) {
+    if ( !( verbosity & verbosityMask ) ) return;
+
+    char buf[PRINT_BUF_SIZE];
+    va_list args;
+
+    va_start( args, fmt );
+    vsnprintf( buf, PRINT_BUF_SIZE, fmt, args );
+    va_end( args );
+
+    OutputDebugStringA(buf);
+}
+
+void log( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -53,7 +51,7 @@ void HavenLib::Printf( const char *fmt, ... ) {
    freeze the game loop and probably throw up a dialog box until
    the user acknowledges the error
 */
-void HavenLib::Error( const char *fmt, ... ) {
+void error( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -67,7 +65,7 @@ void HavenLib::Error( const char *fmt, ... ) {
 /* TODO(szucs): Once we have our game loop, we'll want this to
    abort the game loop and probably throw up a dialog box
 */
-void HavenLib::FatalError( const char *fmt, ... ) {
+void fatalError( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -78,7 +76,7 @@ void HavenLib::FatalError( const char *fmt, ... ) {
     OutputDebugStringA(buf);
 }
 
-void HavenLib::Warning( const char *fmt, ... ) {
+void warning( const char *fmt, ... ) {
     char buf[PRINT_BUF_SIZE];
     va_list args;
 
@@ -87,15 +85,4 @@ void HavenLib::Warning( const char *fmt, ... ) {
     va_end( args );
 
     OutputDebugStringA(buf);
-}
-
-int HavenLib::Init() {
-    DebugPrintf( VERBOSITY_LIB, "Initialized HavenLib\n");
-
-    return 0;
-}
-
-int HavenLib::Deinit() {
-    // Nothing to Deinit right now
-    return 0;
 }
