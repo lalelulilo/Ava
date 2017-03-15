@@ -6,10 +6,11 @@
 #endif
 
 #include "BearLibTerminal.h"
+#include "console.h"
 #include "../havenlib/precompiled.h"
 
 /* Conditional for main game loop */
-static bool runGame = true;
+static int runGame = 1;
 
 int main() {
     /* Create our main window */
@@ -28,17 +29,21 @@ int main() {
         return -1;
     }
 
-    terminal_print( 0, 0, "Oh yeah!" );
-    terminal_print( 0, 1, "You gotta get schwifty" );
-    terminal_print( 0, 2, "You gotta get schwifty in here" );
-    terminal_print( 0, 3, "It's time to get schwifty" );
-    terminal_refresh();
-
     DebugPrintf( VERBOSITY_SYS, "Waiting for terminal to be closed..\n" );
     while ( runGame ) {
+        terminal_print( 0, 0, "Oh yeah!" );
+        terminal_print( 0, 1, "You gotta get schwifty" );
+        terminal_print( 0, 2, "You gotta get schwifty in here" );
+        terminal_print( 0, 3, "It's time to get schwifty" );
+        terminal_refresh();
+
+        /* TODO(tszucs): Deal with key releases being read */
         switch ( terminal_read() ) {
+        case TK_GRAVE:
+            console_start();
+            break;
         case TK_CLOSE:
-            runGame = false;
+            runGame = 0;
             break;
         default:
             break;
