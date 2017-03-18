@@ -25,34 +25,34 @@
 */
 
 // Inform us that something happened, like when the game is initialized
-#define LOG( verbosity, fmt, ... ) \
+#define DEBUG_LOG( verbosity, fmt, ... ) \
     do { vLog(verbosity, "%s(%d): " fmt,                      \
               __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
-#define LOG_IF( cond, verbosity, fmt, ... )                 \
+#define DEBUG_LOG_IF( cond, verbosity, fmt, ... )                 \
     do { if (cond) vLog(verbosity, "%s(%d): " fmt,  \
                         __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
 // Error occured, like model failed to load, but we can continue the game
-#define AVA_ERROR( fmt, ... ) \
+#define DEBUG_ERROR( fmt, ... ) \
     do { error("%s(%d): " fmt, \
                __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
-#define AVA_ERROR_IF( cond, fmt, ... ) \
+#define DEBUG_ERROR_IF( cond, fmt, ... ) \
     do { if (cond) error("%s(%d): " fmt, \
                          __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
 // Fatal error occured which means we can't continue the game i.e. failed to init important component 
-#define FATAL_ERROR( fmt, ... )                                          \
+#define DEBUG_FATAL_ERROR( fmt, ... )                                          \
     do { fatalError("%s(%d): " fmt,                     \
                     __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
-#define FATAL_ERROR_IF( cond, fmt, ... )                                  \
+#define DEBUG_FATAL_ERROR_IF( cond, fmt, ... )                                  \
     do { if (cond) fatalError("%s(%d): " fmt,             \
                               __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
 // Somewhere in-between a Log and an Error, you'll have to use your best judgement :)
-#define WARNING( verbosity, fmt, ... ) \
+#define DEBUG_WARNING( verbosity, fmt, ... ) \
     do { vWarning(verbosity, "%s(%d): " fmt, \
                   __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
-#define WARNING_IF( cond, verbosity, fmt, ... )                  \
+#define DEBUG_WARNING_IF( cond, verbosity, fmt, ... )                  \
     do { if (cond) VWarning(verbosity, "%s(%d): " fmt, \
                             __FUNCTION__, __LINE__, __VA_ARGS__); } while (0)
 
