@@ -22,11 +22,13 @@
     <ClCompile Include="sys\console.cpp" />
     <ClCompile Include="sys\debug.cpp" />
     <ClCompile Include="sys\main.cpp" />
+    <ClCompile Include="sys\input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bearlib\BearLibTerminal.h" />
     <ClInclude Include="sys\console.h" />
     <ClInclude Include="sys\debug.h" />
+    <ClInclude Include="sys\input.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="bearlib\BearLib.ref">
@@ -63,7 +65,7 @@ COPY "$(ProjectDir)bearlib\NotoMono-Regular.ttf" "$(TargetDir)" &gt; NUL</Comman
     <ProjectGuid>{B2B92F5B-7FC4-49D7-BCC5-6524F8A30D0A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Ava</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

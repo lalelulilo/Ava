@@ -8,12 +8,16 @@
 #include "BearLibTerminal.h"
 #include "console.h"
 #include "debug.h"
+#include "input.h"
+
 
 /* Conditional for main game loop */
 static int runGame = 1;
 
 int main() {
     Console debugConsole( LAYER_DEBUG_CONSOLE );
+	InputHandler input;
+
 
     /* Create our main window */
     if ( !terminal_open() ) {
@@ -32,14 +36,10 @@ int main() {
     }
 
     while ( runGame ) {
-        terminal_print( 0, 0, "Oh yeah!" );
-        terminal_print( 0, 1, "You gotta get schwifty" );
-        terminal_print( 0, 2, "You gotta get schwifty in here" );
-        terminal_print( 0, 3, "It's time to get schwifty" );
         terminal_refresh();
 
         /* TODO(tszucs): Deal with key releases being read */
-        switch ( terminal_read() ) {
+        switch (input.readInput()){
         case TK_GRAVE:
             debugConsole.show();
             break;
@@ -49,6 +49,7 @@ int main() {
         default:
             break;
         }
+
     }
 
     terminal_close();
