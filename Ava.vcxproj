@@ -25,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bearlib\BearLibTerminal.h" />
+    <ClInclude Include="Game\Map\map.h" />
     <ClInclude Include="havenlib\lib.h" />
     <ClInclude Include="havenlib\precompiled.h" />
   </ItemGroup>

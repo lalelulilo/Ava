@@ -38,6 +38,9 @@
     <ClInclude Include="bearlib\BearLibTerminal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Map\map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="bearlib\x64\BearLibTerminal.dll" />
