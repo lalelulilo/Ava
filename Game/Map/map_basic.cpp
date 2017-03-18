@@ -22,8 +22,8 @@ environmental stuff. This was a tricky due to BearLib reversing the traditional 
 to COL vs ROW for its terminals grid.
 =================
 */
-template <size_t cols, size_t rows>
-void map_gen(char(&map)[cols][rows]) {
+//template <size_t cols, size_t rows>
+void map_gen( char** map, size_t cols, size_t rows ) {
 
 	//(tennant) for top and bottom
 	for (int x = 2; x<cols - 2; x++)
@@ -52,25 +52,23 @@ void map() {
 	const int width = 80;
 	const int height = 25;
 
-	char simple_map[height][width];
-	//(tennent) Pad map with ' '. Probably not best practice! Also side effects.
-	for (int i = 0; i < height; i++) {
-		for (int j = 0; j < width; j++) {
-			simple_map[i][j] = ' ';
-		}
+	//array of pointers to an array of pointers.
+	char** simple_map = new char*[width];
+	for (int j = 0; j < width; j++) {
+		simple_map[j] = new char[height];
 	}
 
 	//(tennent) Setting "envioronment" layer to 1 for the time being.
 	terminal_layer(1);
 
 	//generate a simple map
-	map_gen(simple_map);
+	map_gen(simple_map, width, height);
 
 	//(tennent) Iterate through array and place the characters on screen.
-	for (int i = 0; i < height; i++) {
-		for (int j = 0; j < width; j++) {
+	for (int i = 0; i < width; i++) {
+		for (int j = 0; j < height; j++) {
 			if (simple_map[i][j] == '#')
-				terminal_put(j, i, simple_map[i][j]);
+				terminal_put(i, j, simple_map[i][j]);
 		}
 	}
 }

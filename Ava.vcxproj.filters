@@ -24,7 +24,7 @@
     <ClCompile Include="sys\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Map\map.cpp">
+    <ClCompile Include="Game\Map\map_basic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
