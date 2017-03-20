@@ -5,12 +5,21 @@
 
 class Console {
 public:
-    Console( int layer );
+    Console( int layerInit, int widthInit, int heightInit );
 
     /* Show the console and start it's loop */
-    int show();
+    void show();
+
 private:
+    char *textBuffer;
+    int textBufferSize;
+
+    color_t fgColor;
+    color_t bgColor;
+
     int layer;
+    int width;
+    int height;
     int runConsole;
 };
 

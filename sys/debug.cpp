@@ -5,7 +5,6 @@
 
 #include <windows.h>
 
-#include "console.h"
 #include "debug.h"
 
 static int verbosityMask = VERBOSITY_SYS;

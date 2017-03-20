@@ -1,19 +1,24 @@
 /* Entry point for AVA */
 
-/* Note(tszucs): This allows us to start from main() instead of WinMain().. */
+/* NOTE(tszucs): This allows us to start from main() instead of WinMain().. */
 #ifdef _MSC_VER
 #pragma comment(linker, "/subsystem:windows /ENTRY:mainCRTStartup")
 #endif
 
 #include "BearLibTerminal.h"
-#include "console.h"
-#include "debug.h"
+#include "sys_local.h"
 
-/* Conditional for main game loop */
+/* Global system state */
+SysVars_t Sys = {
+    "AVA",    // .title
+    200,      // .screenWidth
+    50,       // .screenHeight
+};
+
 static int runGame = 1;
 
 int main() {
-    Console debugConsole( LAYER_DEBUG_CONSOLE );
+    Console debugConsole( LAYER_DEBUG_CONSOLE, Sys.screenWidth, Sys.screenHeight / 2 );
 
     /* Create our main window */
     if ( !terminal_open() ) {
@@ -22,7 +27,8 @@ int main() {
     }
 
     /* Terminal settings */
-    if ( !terminal_set( "window: title='AVA', size=200x50" ) ) {
+    if ( !terminal_setf( "window: title='%s', size=%dx%d",
+                         Sys.title, Sys.screenWidth, Sys.screenHeight ) ) {
         DEBUG_ERROR( "Failed to set window title and size... exiting\n" );
         return -1;
     }
