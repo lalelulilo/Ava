@@ -58,6 +58,6 @@ void Console::show() {
 
     /* Undo our state changes */
     terminal_layer( prevLayer );
-    //terminal_color( prevColor );
+    terminal_color( prevColor );
     terminal_composition( prevComp );
 }
