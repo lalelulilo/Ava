@@ -15,7 +15,6 @@ The main entry point for AVA. This class will include the main game loop (among 
 #endif
 
 #include "BearLibTerminal.h"
-#include "../havenlib/precompiled.h"
 #include "../Game/Map/map.h"
 
 const char* terminal_params = "window: title='Ava', size=80x25"; //(tennent) size is WIDTHxHEIGHT
@@ -43,8 +42,6 @@ int main() {
 
 	//(tennant) add debug info
 	terminal_close();
-
-	DebugPrintf(VERBOSITY_SYS, "Waiting for terminal to be closed..\n");
 
 	return 0;
 }

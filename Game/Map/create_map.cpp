@@ -33,8 +33,6 @@ void map_gen( Map_AVA map ) {
 	{
 		map.set_cell(x, 2, '#');
 		map.set_cell(x, ((int)rows - 3), '#');
-		//map[x][2] = '#';
-		//map[x][height - 3] = '#';
 	}
 
 	//(tennant) for left and right side
@@ -42,8 +40,6 @@ void map_gen( Map_AVA map ) {
 	{
 		map.set_cell(2, y, '#');
 		map.set_cell(((int)cols - 3), y, '#');
-		//map[2][y] = '#';
-		//map[width - 3][y] = '#';
 	}
 }
 
@@ -58,12 +54,6 @@ void create_map() {
 	//(tennant) predetermined window sizes for now. Can figure out dynamic changes later. Arrays probably aren't the best soln here.
 	const int width = 80;
 	const int height = 25;
-
-	//array of pointers to an array of pointers.
-	//char** simple_map = new char*[width];
-	//for (int j = 0; j < width; j++) {
-	//	simple_map[j] = new char[height];
-	//}
 
 	Map_AVA simple_map(width, height);
 
@@ -80,12 +70,4 @@ void create_map() {
 				terminal_put(i, j, simple_map.get_cell(i, j));
 		}
 	}
-	/*
-	for (int i = 0; i < width; i++) {
-		for (int j = 0; j < height; j++) {
-			if (simple_map[i][j] == '#')
-				terminal_put(i, j, simple_map[i][j]);
-		}
-	}
-	*/
 }
