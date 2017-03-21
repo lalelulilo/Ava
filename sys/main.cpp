@@ -37,7 +37,9 @@ int main() {
         return -1;
     }
 
+
     DEBUG_LOG( VERBOSITY_SYS, "Launching main game loop\n" );
+    terminal_color( color_from_argb( 0xFF, 0xFF, 0xFF, 0xFF ) );
     while ( runGame ) {
         terminal_print( 0, 0, "Oh yeah!" );
         terminal_print( 0, 1, "You gotta get schwifty" );
