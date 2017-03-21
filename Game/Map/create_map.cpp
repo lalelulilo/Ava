@@ -25,8 +25,8 @@ to COL vs ROW for its terminals grid.
 */
 void map_gen( Map_AVA map ) {
 
-	size_t cols = map.get_width;
-	size_t rows = map.get_height;
+	size_t cols = map.get_width();
+	size_t rows = map.get_height();
 
 	//(tennant) for top and bottom
 	for (int x = 2; x<cols - 2; x++)

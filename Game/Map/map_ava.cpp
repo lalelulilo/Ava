@@ -5,6 +5,7 @@ Map_AVA::Map_AVA(size_t cols, size_t rows) {
 	width = cols;
 	height = rows;
 
+	//use maloc!
 	map = new char*[cols];
 	for (int r = 0; r < cols; r++)
 		map[r] = new char[rows];
@@ -38,10 +39,10 @@ char Map_AVA::get_cell(int w, int h) {
 
 int Map_AVA::get_width() {
 	size_t &w = width;
-	return w;
+	return (int)w;
 }
 
 int Map_AVA::get_height() {
 	size_t &h = height;
-	return h;
+	return (int)h;
 }
