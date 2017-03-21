@@ -33,7 +33,7 @@ int main() {
 	terminal_clear();
 
 	//(tennant) draw the map in the terminal.
-	map();
+	create_map();
 
 	//(tennant) add debug info
 	terminal_refresh();

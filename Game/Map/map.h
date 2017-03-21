@@ -3,6 +3,8 @@
 
 #pragma once
 
-void map();
+#include "map_ava.h"
+
+void create_map();
 
 #endif

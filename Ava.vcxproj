@@ -19,13 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game\Map\map_basic.cpp" />
+    <ClCompile Include="Game\Map\map_ava.cpp" />
+    <ClCompile Include="Game\Map\create_map.cpp" />
     <ClCompile Include="havenlib\lib.cpp" />
     <ClCompile Include="sys\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bearlib\BearLibTerminal.h" />
     <ClInclude Include="Game\Map\map.h" />
+    <ClInclude Include="Game\Map\map_ava.h" />
     <ClInclude Include="havenlib\lib.h" />
     <ClInclude Include="havenlib\precompiled.h" />
   </ItemGroup>

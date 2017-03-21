@@ -24,7 +24,10 @@
     <ClCompile Include="sys\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Map\map_basic.cpp">
+    <ClCompile Include="Game\Map\map_ava.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Map\create_map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Map\map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map\map_ava.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
