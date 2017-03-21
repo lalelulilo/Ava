@@ -21,20 +21,21 @@ int main() {
 
     /* Create our main window */
     if ( !terminal_open() ) {
-        AVA_ERROR( "Failed to open terminal window.. exiting\n" );
+        DEBUG_ERROR( "Failed to open terminal window.. exiting\n" );
         return -1;
     }
 
     /* Terminal settings */
     if ( !terminal_set( "window: title='AVA', size=200x50" ) ) {
-        AVA_ERROR( "Failed to set window title and size... exiting\n" );
+        DEBUG_ERROR( "Failed to set window title and size... exiting\n" );
         return -1;
     }
     if ( !terminal_set( "font: ./NotoMono-Regular.ttf, size=11" ) ) {
-        AVA_ERROR( "Failed to set terminal font.. exiting\n" );
+        DEBUG_ERROR( "Failed to set terminal font.. exiting\n" );
         return -1;
     }
 
+    DEBUG_LOG( VERBOSITY_SYS, "Launching main game loop\n" );
     while ( runGame ) {
         terminal_refresh();
 
