@@ -9,7 +9,7 @@
 #include "console.h"
 #include "debug.h"
 #include "input.h"
-
+#include "character.h"
 
 /* Conditional for main game loop */
 static int runGame = 1;
@@ -17,7 +17,7 @@ static int runGame = 1;
 int main() {
     Console debugConsole( LAYER_DEBUG_CONSOLE );
 	InputHandler input;
-
+	Character character = Character(25, 25, "@");
 
     /* Create our main window */
     if ( !terminal_open() ) {
@@ -39,8 +39,9 @@ int main() {
     while ( runGame ) {
         terminal_refresh();
 
+
         /* TODO(tszucs): Deal with key releases being read */
-        switch (input.readInput()){
+        switch (input.readInput(character)){
         case TK_GRAVE:
             debugConsole.show();
             break;

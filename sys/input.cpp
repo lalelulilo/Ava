@@ -1,24 +1,37 @@
 #include <string>
 #include "input.h"
 
-InputHandler::InputHandler()
+int InputHandler::readInput(Character character)
 {
-}
-
-int InputHandler::readInput()
-{
+	char str[5];
 	switch (terminal_read()) {
 	case TK_W:
-		terminal_print(0, 0, "Oh, yeah!");
+		terminal_clear();
+		character.yPosition++;
+		terminal_print(4, 4, itoa(character.xPosition,str,10));
+		terminal_print(4, 5, itoa(character.yPosition, str, 10));
+		terminal_print(character.xPosition, character.yPosition, character.body);
 		return TK_W;
 	case TK_A:
-		terminal_print(0, 1, "Take off your pants and your panties.");
+		terminal_clear();
+		character.xPosition--;
+		terminal_print(4, 4, itoa(character.xPosition, str, 10));
+		terminal_print(4, 5, itoa(character.yPosition, str, 10));
+		terminal_print(character.xPosition, character.yPosition, character.body);
 		return TK_A;
 	case TK_S:
-		terminal_print(0, 2, "Shit on the floor.");
+		terminal_clear();
+		character.yPosition--;
+		terminal_print(4, 4, itoa(character.xPosition, str, 10));
+		terminal_print(4, 5, itoa(character.yPosition, str, 10));
+		terminal_print(character.xPosition, character.yPosition, character.body);
 		return TK_S;
 	case TK_D:
-		terminal_print(0, 3, "Time to get Schwifty in here.");
+		terminal_clear();
+		character.xPosition++;
+		terminal_print(4, 4, itoa(character.xPosition, str, 10));
+		terminal_print(4, 5, itoa(character.yPosition, str, 10));
+		terminal_print(character.xPosition, character.yPosition, character.body);
 		return TK_D;
 	case TK_BACKSPACE:
 		terminal_clear();

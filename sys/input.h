@@ -1,9 +1,8 @@
 #pragma once
 #include "BearLibTerminal.h"
+#include "character.h"
 
 class InputHandler {
 public:
-	InputHandler();
-
-	int readInput();
+	int readInput(Character character);
 };

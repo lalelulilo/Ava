@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sys\character.cpp" />
     <ClCompile Include="sys\console.cpp" />
     <ClCompile Include="sys\debug.cpp" />
     <ClCompile Include="sys\main.cpp" />
@@ -26,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bearlib\BearLibTerminal.h" />
+    <ClInclude Include="sys\character.h" />
     <ClInclude Include="sys\console.h" />
     <ClInclude Include="sys\debug.h" />
     <ClInclude Include="sys\input.h" />
