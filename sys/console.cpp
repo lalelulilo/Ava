@@ -81,8 +81,8 @@ void Console::show() {
             currChar = 0;
             textBuf.idx = ( textBuf.idx + 1 ) % textBuf.size;
         } else if ( key == TK_BACKSPACE && currChar >= 0 ) {
-            textBuf.text[textBuf.idx][currChar] = '\0';
             if ( currChar > 0 ) currChar--;
+            textBuf.text[textBuf.idx][currChar] = '\0';
         } else if ( terminal_check(TK_CHAR) &&
                     currChar < textBuf.dataSize &&
                     currChar < width ) {
